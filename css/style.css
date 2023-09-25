@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+
+:root{
+    --brown: #a6421b;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+    text-decoration: none;
+    transform: .2s linear;
+}
+
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    padding: .8rem 3rem;
+    background: var(--brown);
+    border-radius: 20px;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .7);
+    color: #fff;
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+.btn:hover{
+    background-color: #222;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+section{
+    padding: 3rem 9%;
+}
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: var(--brown);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 9%;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+}
+
+.header .logo{
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color: #fff;
+}
+
+.header .logo i{
+    color: #141313;
+    padding-right: .5rem;
+}
+
+.header .navbar a{
+    font-size: 1.7rem;
+    color: #e3dede;
+    margin: 0 1rem;
+}
+
+.header .navbar a:hover{
+    color: #222;
+}
+
+.header .icons div{
+    font-size: 2.5rem;
+    margin-left: 1.7rem;
+    cursor: pointer;
+    color: #fff;
+}
+.header .icons div:hover{
+    color: #222;
+}
+
+#menu-btn{
+    display: none;
+}
+@keyframes fadeLeft {
+    0%{
+        opacity: 0;
+        transform: translateX(-5rem);
+    }
+}
+@keyframes fadeup {
+    0%{
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+
+
+
+.home{
+    padding: 14rem;
+    background: rgb(228, 175, 117);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.home .slides-container .slide{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    display: none;
+}
+.home .slides-container .slide.active{
+    display: flex;
+}
+
+.home .slides-container .slide .content{
+    flex: 1 1 40rem;
+    animation: fadeLeft .4s linear .4s backwards;
+}
+.home .slides-container .slide .content span{
+    color: #000;
+    font-size: 2.5rem;
+}
+
+.home .slides-container .slide .content h3{
+    font-size: 6rem;
+    color: #222;
+    padding: .5rem 0;
+}
+.home .slides-container .slide .img{
+    flex: 1 1 40rem;
+    margin: 3rem 0;
+}
+
+.home .slides-container .slide .img img{
+    width: 100%;
+    animation:fadeUp .4s linear;
+}
+.home #next-slide,
+.home #prev-slide{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    border-radius: 30px 0px 0px 30px;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    text-align: center;
+    background-color: var(--brown);
+    font-size: 2.5rem;
+    color: #fff;
+    cursor: pointer;
+} 
+
+.home #next-slide{
+    border-radius: 0px 20px 20px 0px;  
+}
+
+.home #next-slide:hover,
+.home #prev-slide:hover{    
+color: #fff;
+background: #101110;
+}
+.home #prev-slide{
+left: 2rem;
+}
+.home #next-slide{
+    right: 2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*//////// media quaries ////*/
+
+@media (max-width:991px){
+    html{
+        font-size: 55%;
+    }
+    .header{
+        padding: 2rem;
+    }
+    section{
+        padding: 3rem 2rem;
+    }
+    .home #next-slide,
+    .home #prev-slide{
+      transform: translateY(0);
+      top: 88%;
+    }
+    .home #prev-slide{
+        left: auto;
+        right: 8rem;
+    }
+}
+
+@media (max-width: 768px){
+    #menu-btn{
+        display: inline-block;
+    }
+    .header .navbar{
+        position: absolute;
+        top: 99%;
+        left: 0;
+        right: 0;
+        background: #222;
+        border-top: .1rem solid rgba(0, 0, 0, .1);
+        border-bottom: .1rem solid rgba(0, 0, 0, .1);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    .header .navbar a{
+        margin: 1.5rem;
+        padding: 1.5rem;
+        background: var(--brown);
+        font-size: 2rem;
+        display: block;
+        border-radius: .5rem;
+    }
+}
+.header .navbar.active{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+@media (max-width:450px){
+    html{
+        font-size: 50%;
+    }
+    .home .slides-container .slide h3{
+        font-size: 4rem;
+
+    }
+}
+
+
+
+
+
+
